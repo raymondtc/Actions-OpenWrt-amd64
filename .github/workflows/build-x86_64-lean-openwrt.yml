@@ -166,6 +166,13 @@ jobs:
         name: ${{ env.DEVICE }}-squashfs-combined.vdi
         path: openwrt/bin/targets/${{ env.TARGET }}/${{ env.SUBTARGET }}/${{ env.DEVICE }}-squashfs-combined.vdi
 
+    - name: Upload Combined VMware Image
+      uses: actions/upload-artifact@main
+      if: steps.generate.outputs.status == 'success'
+      with:
+        name: ${{ env.DEVICE }}-squashfs-combined.vmdk
+        path: openwrt/bin/targets/${{ env.TARGET }}/${{ env.SUBTARGET }}/${{ env.DEVICE }}-squashfs-combined.vmdk
+
     - name: Upload Images Sha256sums
       uses: actions/upload-artifact@main
       if: steps.generate.outputs.status == 'success'
