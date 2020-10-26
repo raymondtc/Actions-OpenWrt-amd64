@@ -26,11 +26,6 @@ git clone --depth=1 https://github.com/lisaac/luci-app-diskman
 mkdir parted
 cp luci-app-diskman/Parted.Makefile parted/Makefile
 
-# Add luci-app-dockerman
-rm -rf ../lean/luci-app-docker
-git clone --depth=1 https://github.com/KFERMercer/luci-app-dockerman
-git clone --depth=1 https://github.com/lisaac/luci-lib-docker
-
 # Add luci-theme-argon
 git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
 git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
@@ -63,12 +58,6 @@ popd
 pushd feeds/packages/libs
 rm -rf libssh
 svn co https://github.com/openwrt/packages/trunk/libs/libssh
-popd
-
-# Add po2lmo
-git clone https://github.com/openwrt-dev/po2lmo.git
-pushd po2lmo
-make && sudo make install
 popd
 
 # Change default shell to bash
