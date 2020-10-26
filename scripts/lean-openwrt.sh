@@ -26,6 +26,11 @@ git clone --depth=1 https://github.com/lisaac/luci-app-diskman
 mkdir parted
 cp luci-app-diskman/Parted.Makefile parted/Makefile
 
+# Add luci-app-dockerman
+rm -rf ../lean/luci-app-docker
+git clone --depth=1 https://github.com/KFERMercer/luci-app-dockerman
+git clone --depth=1 https://github.com/lisaac/luci-lib-docker
+
 # Add luci-theme-argon
 git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
 git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
@@ -67,4 +72,4 @@ make && sudo make install
 popd
 
 # Change default shell to bash
-sed -i 's/\/bin\/ash/\/usr\/bin\/bash/g' package/base-files/files/etc/passwd
+sed -i 's/\/bin\/ash/\/bin\/bash/g' package/base-files/files/etc/passwd
